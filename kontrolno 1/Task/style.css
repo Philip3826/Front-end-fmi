@@ -1,0 +1,114 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+#main {
+  border: 1px solid red;
+  box-sizing: border-box;
+  margin-left: 400px;
+  margin-top: 200px;
+  height: 768px;
+  width: 1336px;
+}
+
+/* Add your CSS here */
+
+.header {
+  background: linear-gradient(green, white);
+  padding: 30px 40px;
+}
+
+h2 {
+  display: flex;
+  flex-grow: 2;
+  justify-content: center;
+  margin: 20px 0;
+  color: white;
+}
+
+
+.vertical-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.horizontal-container {
+  display: flex;
+  flex-direction: row;
+}
+
+#header-buttons {
+  float: right;
+}
+
+#header-buttons>button {
+  margin-right: 8px;
+  background-color: transparent;
+  border: 2px dotted purple;
+  padding: 8px 16px;
+  color: white;
+  font-size: 16px;
+}
+
+#add-button {
+  padding: 10px;
+  border: 1px dashed white;
+  background-color: purple;
+  flex-grow: 1;
+  color: white;
+}
+
+#add-button:hover {
+  background-color: peru;
+}
+
+input {
+  padding: 10px;
+  outline: none;
+  border: none;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  padding: 12px 8px 12px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+li>input {
+  width: 100px;
+}
+
+li:nth-child(even) {
+  background-color: skyblue;
+}
+
+li:nth-child(odd) {
+  background-color: pink;
+}
+
+li:hover {
+  background-color: white;
+}
+
+#student-name {
+  flex-grow: 3;
+}
+
+
+
+#selected {
+  background-color: green;
+}
+
+#selected>span {
+  text-decoration: line-through;
+  color: white;
+}
