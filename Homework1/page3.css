@@ -129,7 +129,7 @@ body {
     margin-right: 0.5rem;
 }
 
-.new-post-box {
+.say-something-box {
     background-color: #f4fcfd;
     width: 100%;
     display: flex;
@@ -140,13 +140,13 @@ body {
 
 .comment-profile-pic {
     border-radius: 50%;
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 2rem;
+    height: 2rem;
     margin-left: 1.5rem;
     margin-right: 1rem;
 }
 
-.post-box {
+.say-something {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -162,7 +162,7 @@ body {
     border-radius: 2.5rem;
     color:#5ec0d8;
 }
-.post-box::placeholder
+.say-something::placeholder
 {
     color: #5ec0d8;
 }
@@ -174,4 +174,40 @@ body {
     height: 1rem;
     width: auto;
     margin-left:8rem;
+}
+.profile-pic
+{
+    border-radius: 50%;
+    width:2.5rem;
+    height:2.5rem;
+}
+.post-contents
+{
+    margin-left:1rem;
+}
+.post-box
+{
+    display:flex;
+    flex-direction:row;
+    border-top:1px solid rgb(223,227,228);
+    padding:1.5rem;
+}
+.gray
+{
+    color:gray;
+}
+.gray img
+{
+    height: 0.5rem;
+    width: auto;
+}
+.x-button
+{
+    height: 0.8rem;
+    width: auto;
+    margin-right: 1rem;
+}
+.post-text
+{
+    padding-right:1.5rem;
 }
