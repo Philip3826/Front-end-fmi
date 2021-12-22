@@ -75,6 +75,11 @@ input:focus {
 
 
 }
+#submit-link
+{
+    color:white;
+    
+}
 
 a {
     color: blue;

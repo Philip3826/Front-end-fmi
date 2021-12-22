@@ -19,11 +19,11 @@ body {
 
 .main-page {
     display: flex;
-    width:100%;
+    width: 100%;
     justify-content: center;
-    align-items:center;
-    flex-wrap:wrap;
-   
+    align-items: flex-start;
+    flex-wrap: wrap;
+
 }
 
 .search-body {
@@ -69,8 +69,9 @@ input[type=search]::placeholder {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-right:0.5rem;
-    
+    margin-top: 1rem;
+    margin-right: 0.5rem;
+
 
 }
 
@@ -78,7 +79,7 @@ input[type=search]::placeholder {
     display: flex;
     flex-direction: column;
     align-items: center;
-    flex-grow: 2;
+    
 }
 
 .profile-page img {
@@ -95,7 +96,7 @@ input[type=search]::placeholder {
     width: 18rem;
     align-items: center;
     justify-content: space-between;
-    flex-grow: 10;
+    
     margin-top: 1rem;
     font-size: 90%;
 }
@@ -160,7 +161,7 @@ input[type=search]::placeholder {
     justify-content: space-between;
     background-color: white;
     width: 100%;
-    height:100%;
+    height: 100%;
     margin: 0.5rem 2rem 0.5rem 1rem;
     border-radius: 2.5rem;
 }
@@ -210,42 +211,98 @@ input[type=search]::placeholder {
     height: 0.5rem;
     width: auto;
 }
-.user-and-time
-{
-    display:flex;
+
+.user-and-time {
+    display: flex;
     justify-content: space-between;
-    width:100%;
+    width: 100%;
 }
+
 .x-button {
     height: 0.8rem;
     width: auto;
-    margin-right: 1rem;
-    position:relative;
-    right:0;
+    
+    position: relative;
+    right: 0;
 }
 
 .post-text {
-    margin-top:0.5rem;
+    margin-top: 0.5rem;
     padding-right: 1.5rem;
 }
 
-.likes-dislikes
-{
-    display:flex;
-    flex-direction:row;
-    padding-top:1rem;
+.likes-dislikes {
+    display: flex;
+    flex-direction: row;
+    padding-top: 1rem;
 }
-.likes-dislikes img
-{
-    height:1rem;
-    width:auto;
-    
+
+.likes-dislikes img {
+    height: 1rem;
+    width: auto;
+
 }
-.likes
-{
-    margin-right:2rem;
+
+.likes {
+    margin-right: 2rem;
 }
-.dislikes
-{
-    margin-left:2rem;
+
+.dislikes {
+    margin-left: 2rem;
+}
+
+@media screen and (max-width:890px) {
+
+    .profile img {
+        border-radius: 50%;
+        width: 5.25rem;
+        height: 5.25rem;
+    }
+
+    .main-page {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .profile-page {
+        padding-bottom: 0;
+        margin-top: 0.5rem;
+        width: 100%;
+        max-width: unset;
+        
+
+    }
+
+    .feed {
+        margin-top: 0;
+        padding-top: 0;
+        margin-right: 0;
+    }
+
+    .under-profile-body {
+        height: 3.75rem;
+        width: 100%;
+        font-size: 0.75rem;
+    }
+
+    .under-profile-body span {
+        font-size: 1.125rem;
+    }
+    .say-something-box
+    {
+        height: 3.75rem;
+        display: flex;
+    }
+    .post-box
+    {
+        min-height: 7rem;
+        font-size: 0.875rem;
+    }
+    .likes-dislikes
+    {
+        padding-bottom: 1rem;
+    }
 }
