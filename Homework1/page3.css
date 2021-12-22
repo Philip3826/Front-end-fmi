@@ -40,6 +40,7 @@ body {
     display: flex;
     height: 2.5em;
     text-align: center;
+    margin-bottom:0.5rem;
 }
 
 input[type=search]::placeholder {
@@ -51,15 +52,17 @@ input[type=search]::placeholder {
     border-style: none;
     margin-left: 1rem;
     border-radius: 2rem;
+    padding:0.5rem;
 }
 
 
 .search-box img {
     position: absolute;
-    height: 0.5rem;
+    height: 0.75rem;
     width: auto;
     margin-right: 1rem;
     margin-left: 9.5rem;
+    
 }
 
 .profile-page {
@@ -92,11 +95,9 @@ input[type=search]::placeholder {
 .under-profile-body {
     background-color: #f6f7fd;
     display: flex;
-    max-width: 18rem;
-    width: 18rem;
+    width:100%;
     align-items: center;
     justify-content: space-between;
-    
     margin-top: 1rem;
     font-size: 90%;
 }
@@ -145,6 +146,7 @@ input[type=search]::placeholder {
     flex-direction: row;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
+    align-items:center;
 }
 
 .comment-profile-pic {
@@ -152,17 +154,20 @@ input[type=search]::placeholder {
     width: 2rem;
     height: 2rem;
     margin-left: 1.5rem;
-    margin-right: 1rem;
+   
 }
 
 .say-something {
+    border:1px solid #DDD;
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: white;
     width: 100%;
     height: 100%;
-    margin: 0.5rem 2rem 0.5rem 1rem;
+    margin-left:1rem;
+    margin-right: 2rem;
+    padding:0.5rem;
     border-radius: 2.5rem;
 }
 
@@ -178,12 +183,10 @@ input[type=search]::placeholder {
 }
 
 #comment-icon {
-    fill: #5ec0d8;
-    color: #5ec0d8;
-    position: absolute;
+  
     height: 1rem;
     width: auto;
-    margin-left: 46rem;
+    
 }
 
 .profile-pic {
@@ -194,6 +197,7 @@ input[type=search]::placeholder {
 
 .post-contents {
     margin-left: 1rem;
+    flex-grow: 1;
 }
 
 .post-box {
@@ -267,6 +271,7 @@ input[type=search]::placeholder {
         margin-right: auto;
     }
 
+
     .profile-page {
         padding-bottom: 0;
         margin-top: 0.5rem;
@@ -274,6 +279,12 @@ input[type=search]::placeholder {
         max-width: unset;
         
 
+    }
+    .say-something
+    {
+        height:75%;
+        padding-top:0;
+        padding-bottom: 0;
     }
 
     .feed {
@@ -293,7 +304,7 @@ input[type=search]::placeholder {
     }
     .say-something-box
     {
-        height: 3.75rem;
+        height: 3rem;
         display: flex;
     }
     .post-box
@@ -305,4 +316,9 @@ input[type=search]::placeholder {
     {
         padding-bottom: 1rem;
     }
+    #comment-box
+    {
+        margin-right:500rem;
+    }
+
 }
