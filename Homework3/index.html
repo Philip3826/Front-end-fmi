@@ -8,21 +8,22 @@
 </head>
 
 <body>
-    <div class="modal-background" hidden></div>
-    <div id="dialog" class = "modal" hidden>
-       
-        <button id="close-dialog-btn">Close</button>
-    </div>
-    <div class="main-wrapper">
+    <div id="dialog-background" hidden></div>
+    <div class="wraps-all">
+        <div id="dialog" class="modal"></div>
+        <div class="main-wrapper">
         <div class="main-container">
             <div class="title-container">
                 <h1 class="title">Meal List</h1>
             </div>
             <div class="menu-box">
                 <div class="search-bars">
-                    <input type="search" id="name-filter" onkeyup="filterFunction()" class="search-bar"  placeholder="Filter by name">
-                    <input type="search" id= "category-filter"  onkeyup="filterFunction()" class="search-bar" placeholder="Filter by category">
-                    <input type="search" id="region-filter" onkeyup="filterFunction()" class="search-bar" placeholder="Filter by region">
+                    <input type="search" id="name-filter" onkeyup="filterFunction()" class="search-bar"
+                        placeholder="Filter by name">
+                    <input type="search" id="category-filter" onkeyup="filterFunction()" class="search-bar"
+                        placeholder="Filter by category">
+                    <input type="search" id="region-filter" onkeyup="filterFunction()" class="search-bar"
+                        placeholder="Filter by region">
                 </div>
                 <ul id="recipe-list" class="menu">
 
@@ -30,5 +31,7 @@
             </div>
         </div>
     </div>
-    <script src="index.js"></script>
+    </div>
+        <script src="index.js">
+        </script>
 </body>

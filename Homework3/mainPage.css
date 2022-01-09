@@ -13,111 +13,289 @@
     --fontweight1: 700;
     --fontweight2: 400;
 }
-body{
+
+body {
     height: 100%;
-    margin:0;
+    margin: 0;
+
+    display:flex;
+    justify-content: center;
 
 }
-.modal-background{
-    opacity: var(--opacity);
+.wraps-all{
+    position:absolute;
+    display:flex;
+    justify-content: center;
 }
-.main-wrapper{
+#dialog-background{
+    background-color:var(--color4);
+    opacity:0.5;
+    width:100%;
+    height:100%;
+    
+}
+
+#dialog{
+    position:absolute;
+    margin-top:7.5rem;
+    border-radius: var(--borderradius1);
+    background-color:var(--color1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 750px;
+    opacity: 1 !important;
+}
+
+
+.main-wrapper {
+
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
+    
 }
-.main-container
-{
+
+.main-container {
     display: flex;
     flex-direction: column;
-    border : 1.5px solid var(--color4);
+    border: 1.5px solid var(--color4);
     margin: 15px;
-   border-radius: var(--borderradius2);
+    border-radius: var(--borderradius2);
 }
-.title-container
-{
+
+.title-container {
     font-size: var(--fontsize2);
     background-color: var(--color3);
     border-top-right-radius: var(--borderradius2);
     border-top-left-radius: var(--borderradius2);
-    text-align:center;
+    text-align: center;
     max-width: 100%;
     border-bottom: 1.5px solid var(--color4);
 
 }
-.title{
+
+.title {
     font-weight: var(--fontweight1);
 }
-.search-bars{
+
+.search-bars {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     background-color: var(--color1);
     border-radius: var(--borderradius1);
-    border:1px solid var(--color4);
-    margin:0.5rem;
-    padding:1rem;
+    border: 1px solid var(--color4);
+    margin: 0.5rem;
+    padding: 1rem;
 
 
 }
-.search-bar
-{
-    background-color:var(--color2);
+
+.search-bar {
+    background-color: var(--color2);
     font-size: var(--fontsize1);
     border: 1px solid var(--color4);
-    border-radius: var(--borderradius1);
+    border-radius: var(--borderradius2);
     width: 30%;
+    padding:6px;
+    padding-left: 8px;
 }
-input[type=search]::placeholder
-{
-    color:var(--color4);
-}
-.menu-box{
+
+.image-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
 }
-.menu{
-    
-    margin:1rem;
+
+.recipe-button-container {
+    display: flex;
+    flex-direction: row;
 }
-.recipe-box{
+
+input[type=search]::placeholder {
+    color: var(--color4);
+}
+
+.menu-box {
+    align-items: center;
+}
+
+.menu {
+
+    margin: 1rem;
+}
+
+.recipe-box {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    
-}
-.recipe-img
-{
-    width:1.5rem;
-    height:auto;
-}
-ul li{
-    border-radius: var(--borderradius1);
-    border:1px solid var(--color4);
-    background-color: var(--color2);
-}
-li:nth-child(odd)
-{
-    background-color: var(--color1);
-}
-.recipe-name{
-    color:var(--color4);
-    font-weight: var(--fontweight1);
-    margin-right:1rem;
-    flex-grow:1.5rem;
-}
-.recipe-info{
-    color:var(--color4);
-    margin-left:var(--spacing1);
-    font-weight: var(--fontweight1);
-    
-}
-.recipe-button{
-    color:var(--color4);
-    background-color: var(--color3);
-    border:1.5px solid var(--color4);
-    border-radius: var(--borderradius2);
-    font-weight: var(--fontweight1);
+    align-items: center;
 }
 
+
+.recipe-img {
+    width:3rem;
+    height: 3rem;
+    margin-top:1rem;
+    margin-left:1rem;
+    margin-bottom:2rem;
+}
+
+ul {
+    padding-left: 0;
+}
+
+ul li {
+   
+    border: 1px solid var(--color4);
+    background-color: var(--color2);
+
+}
+li:first-child{
+    border-top-left-radius: var(--borderradius1);
+    border-top-right-radius: var(--borderradius1);
+}
+li:last-child{
+    border-bottom-left-radius: var(--borderradius1);
+    border-bottom-right-radius:var(--borderradius1) ;
+}
+li:nth-child(odd) {
+    background-color: var(--color1);
+}
+
+.recipe-name {
+    color: var(--color4);
+    font-weight: var(--fontweight1);
+    margin-left: 1rem;
+    margin-top:1rem;
+}
+
+.recipe-info {
+    color: var(--color4);
+    margin-left: var(--spacing1);
+    font-weight: var(--fontweight1);
+    margin-top:2rem;
+    margin-bottom: 1rem;
+    margin-right:1rem;
+    
+}
+#recipe-origin{
+    margin-left:0;
+}
+
+.recipe-button {
+    color: var(--color4);
+    background-color: var(--color3);
+    border: 1.5px solid var(--color4);
+    border-radius: var(--borderradius2);
+    font-weight: var(--fontweight1);
+    height:3rem;
+    margin-top:1rem;
+    margin-bottom: 1rem;
+    margin-right:1rem;
+}
+
+
+
+
+
+.pop-name-container {
+    font-size: var(--fontsize2);
+    background-color: var(--color3);
+    border-top-left-radius: var(--borderradius2);
+    border-top-right-radius: var(--borderradius2);
+    text-align: center;
+    max-width: 100%;
+    width: 100%;
+    border-bottom: 1.5px solid var(--color4);
+}
+
+.pop-up-image {
+
+    width: 20rem;
+    height: auto;
+    margin-top: 1rem;
+
+}
+.pop-up-instructions{
+    padding:1rem;
+    padding-left:1.5rem;
+    padding-right:1.5rem;
+    font-size: var(--fontsize1);
+}
+
+td {
+    border: 1.5px solid var(--color4);
+    margin-right: 1rem;
+
+}
+
+tr {
+    background-color: var(--color2);
+    border-bottom: none;
+
+}
+
+.ingredients-table {
+
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+tr:first-child {
+    background-color: var(--color3);
+    font-weight: var(--fontweight1);
+    font-size: var(--fontsize1);
+
+}
+
+tr td:first-child {
+    border-right: none;
+}
+
+td {
+    padding-left: 1rem;
+    padding-right: 5rem;
+}
+
+tr:first-child td:first-child {
+    border-top-left-radius: var(--borderradius2);
+}
+
+tr:first-child td:last-child {
+    border-top-right-radius: var(--borderradius2);
+}
+
+tr:last-child td:first-child {
+    border-bottom-left-radius: var(--borderradius2);
+}
+
+tr:last-child td:last-child {
+    border-bottom-right-radius: var(--borderradius2);
+}
+
+.close-btn-container {
+    margin-top: 5rem;
+    background-color: var(--color2);
+    max-width: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    border-bottom-right-radius: var(--borderradius2);
+    border-bottom-left-radius: var(--borderradius2);
+}
+
+.close-dialog-btn {
+    color: var(--color4);
+    background-color: var(--color3);
+    border: 1.5px solid var(--color4);
+    border-radius: var(--borderradius2);
+    font-weight: var(--fontweight1);
+    font-size: var(--fontsize2);
+}

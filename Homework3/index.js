@@ -1,5 +1,3 @@
-//const { async } = require("fast-glob");
-//const { object } = require("webidl-conversions");
 
 const recipeBoxTemplate = (recipe) => {
     let li = document.createElement("li");
@@ -14,6 +12,11 @@ const recipeBoxTemplate = (recipe) => {
     recipeName.classList.add("recipe-name");
     recipeName.innerHTML = `${recipe.name}`;
 
+    let imgDiv = document.createElement("div");
+    imgDiv.classList.add("image-div");
+    imgDiv.appendChild(img);
+    imgDiv.appendChild(recipeName);
+
     let category = document.createElement("p");
     category.classList.add("recipe-info");
     category.setAttribute("id","recipe-category")
@@ -22,23 +25,30 @@ const recipeBoxTemplate = (recipe) => {
 
     let origin = document.createElement("p");
     origin.classList.add("recipe-info");
+    origin.setAttribute("id","recipe-origin");
     origin.innerHTML = `${recipe.region}`;
 
     let btn = document.createElement("button");
     btn.classList.add("recipe-button");
     btn.innerText = "See Recipe";
+    btn.addEventListener("click",(event)=>{
+        toggleDialog(true,recipe);
+    })
 
-    li.appendChild(img);
-    li.appendChild(recipeName);
-    li.appendChild(category);
-    li.appendChild(origin);
-    li.appendChild(btn);
+    let recipeBtnDiv = document.createElement("div");
+    recipeBtnDiv.classList.add("recipe-button-container");
+    recipeBtnDiv.appendChild(category);
+    recipeBtnDiv.appendChild(origin);
+    recipeBtnDiv.appendChild(btn);
+
+    li.appendChild(imgDiv);
+    li.appendChild(recipeBtnDiv);
     document.getElementsByClassName("menu")[0].appendChild(li);
 }
 
 const popUpTemplate = (recipe) =>{
     let div = document.createElement("div");
-    div.classList.add("pop-up-Box");
+    div.classList.add("pop-name-container");
 
     let img = document.createElement("img");
     img.classList.add("pop-up-image");
@@ -48,15 +58,63 @@ const popUpTemplate = (recipe) =>{
     let recipeName = document.createElement("p");
     recipeName.classList.add("pop-up-name");
     recipeName.innerHTML = `${recipe.name}`;
+    div.appendChild(recipeName);
     
     let instructions = document.createElement("p");
     instructions.classList.add("pop-up-instructions");
     instructions.innerHTML = `${recipe.instruction}`;
 
-    div.appendChild(recipeName);
-    div.appendChild(img);
-    div.appendChild(instructions);
-    document.getElementById("dialog").appendChild(div);
+    let ingredients = document.createElement("table");
+    ingredients.classList.add("ingredients-table");
+    let ingredientsArr = recipe.ingredients;
+    let keys = Object.keys(ingredientsArr);
+   
+    let firstRow = document.createElement("tr");
+    firstRow.classList.add("table-row");
+    let first = document.createElement("td");
+    first.innerText = "Ingredients";
+    let second = document.createElement("td");
+    second.innerText="Measures";
+    firstRow.appendChild(first);
+    firstRow.appendChild(second);
+    ingredients.appendChild(firstRow);
+    
+    ingredientsArr.forEach((pair)=>{
+       let row= document.createElement("tr");
+       row.classList.add("table-row");
+       let ingredient = `${pair.name}`;
+       let measure = `${pair.measure}`;
+       let firstCell =  document.createElement("td");
+       let secondCell = document.createElement("td");
+      
+       firstCell.innerText= ingredient;
+       secondCell.innerText= measure;
+
+       row.appendChild(firstCell);
+       row.appendChild(secondCell);
+       ingredients.appendChild(row);
+    })
+
+
+    let btnDiv = document.createElement("div");
+    btnDiv.classList.add("close-btn-container");
+    let btn = document.createElement("button");
+    btn.classList.add("close-dialog-btn");
+    btn.innerText = "Close";
+    btn.addEventListener("click",(event)=>{
+        toggleDialog(false);
+    })
+
+    btnDiv.appendChild(btn);
+    let dialog = document.getElementById("dialog");
+    dialog.style.border="1.5px solid black";
+    dialog.appendChild(div);
+    dialog.appendChild(img);
+    dialog.appendChild(instructions);
+    dialog.appendChild(ingredients);
+    dialog.appendChild(btnDiv);
+   
+
 }
 
 const loadRecipes = async () => {
@@ -67,32 +125,29 @@ const loadRecipes = async () => {
 
 }
 
-// add toggle fun
 
-const addEventListeners = ()=>{
-    let buttons = document.querySelectorAll(".recipe-button");
-    buttons.forEach((button)=>{
-        
-        button.addEventListener("click",async(event)=>{
-            console.log("event");
-            const parentNode = event.target.parentNode;
-            const recipeTitle = parentNode.querySelector(".recipe-name").innerText;
-            const response = await fetch(`https://api.npoint.io/51ed846bdd74ff693d7e=${recipeTitle}`);
-            const jsonVar = await response.json();
-            const keys = Object.keys(jsonVar);
-
-
-            keys.forEach((element)=>popUpTemplate(element));
-            // here function for toggle
-        })
-    })
+const toggleDialog = (open,recipe) =>{
+    let dialog= document.getElementById("dialog");
+    let background = document.getElementById("dialog-background");
     
+    dialog.toggleAttribute("hidden",!open);
+    
+    if(open){
+         popUpTemplate(recipe);
+        background.style.display="block";
+       
+    }
+    else {
+        dialog.innerHTML="";
+        background.style.display="none";
+    }
+  //  title.innerText=`${recipe.name}`;
 }
+
+
 
 async function initialLoad() {
     await loadRecipes();
-    addEventListeners();
-
 }
 initialLoad();
 
@@ -112,6 +167,8 @@ function filterFunction() {
 
     for(let i = 0  ; i < li.length;i++){
         let isFiltered = false;
+        console.log(li[i]);
+
         let nameList = li[i].getElementsByTagName("p")[0];
         let nameListStr = nameList.textContent;
 
@@ -150,3 +207,6 @@ function filterFunction() {
 }
 
 }
+
+
+
