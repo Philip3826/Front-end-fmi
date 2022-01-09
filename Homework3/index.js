@@ -139,6 +139,7 @@ const toggleDialog = (open,recipe) =>{
     }
     else {
         dialog.innerHTML="";
+        dialog.style.border="none";
         background.style.display="none";
     }
   //  title.innerText=`${recipe.name}`;
